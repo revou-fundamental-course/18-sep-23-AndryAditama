@@ -123,6 +123,7 @@ body {
 .btnForm{
     margin-top: 25px ;
     padding: 15px;
+    text-align: center;
     background-color: black;
     color: white;
     border: none;
@@ -135,14 +136,32 @@ body {
     color: black;
     border: none;
 }
+
+.errorMessage{
+    color: red;
+    font-size: 0.8em;
+    padding-top: 3px;
+}
+
 .contentLeft{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-img{
+.images{
     width: 100%;
+    display: none;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
 }
 
 .contentLeftSpan {
@@ -178,8 +197,13 @@ img{
     justify-content: center;
 }
 
+.infoDiv{
+    padding: 10px 50px;
+}
+
 .infoHeader{
     padding: 30px 0px 20px 0px;
+    width: 60%;
 }
 
 .infoBox{
@@ -284,7 +308,7 @@ img{
     background-color: black;
     color: white;
     padding: 10px;
-    font-size: larger;
+    font-size: 1.2em;
     border: none;
     border-radius: 5px;
     font-weight: bold;
@@ -319,7 +343,7 @@ img{
 }
 
 /* styling untuk tampilan mobile */
-@media only screen and (max-width: 600px){
+@media screen and (max-width: 768px){
    .header{
     padding: 10px 40px 20px 40px;
     display: flex;
@@ -361,8 +385,13 @@ img{
     width: auto;
    }
 
+   .infoDiv{
+    padding: 10px 40px;
+}
+
    .infoHeader{
     text-align: justify;
+    width: 100%;
    }
 
    .infoDescription{
@@ -370,11 +399,11 @@ img{
    }
 
    .infoBox{
-    padding-bottom: 20px;
+    padding-bottom: 0px;
    }
 
    .package{
-    margin-top: 50px;
+    margin-top: 40px;
    }
 
    .packageBox{
@@ -413,17 +442,3 @@ img{
    }
 }
 
-/* a[id="btnHome"]:target ~ #contentTitle {
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-
-a[id="btnPackage"]:target ~ #package {
-  -webkit-transform: translate3d(0, -100%, 0);
-  transform: translate3d(0, -100%, 0);
-}
-
-a[id="btnCall"]:target ~ #footer {
-  -webkit-transform: translate3d(0, -200%, 0);
-  transform: translate3d(0, -200%, 0);
-} */

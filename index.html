@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
     <title>Tugas</title>
 </head>
 
-<body>
+<body onload="plusDiv(1)">
     <header class="header" id="header">
         <div class="pageTitle">E-Groceries</div>
         <div class="navigation">
@@ -30,8 +30,10 @@
         </div>
         <div class="content">
             <div class="contentLeft">
-                <div>
-                    <img src="asset/wpp.jpg" alt="Gambar">
+                <div id="contentImage" class="contentImage">
+                    <img src="asset/gambar1.jpg" class="images fade">
+                    <img src="asset/gambar2.jpg" class="images fade">
+                    <img src="asset/gambar3.jpg" class="images fade" alt="">
                 </div>
                 <div class="contentLeftSpan">
                     <span>"Setiap hari beli sayur buah yang fresh di sini"</span>
@@ -46,40 +48,6 @@
                         <span>Ibu Rumah Tangga</span>
                     </div>
                 </div>
-                <div>
-                    <div class="infoHeader">
-                        <span><b>Use this space to provide users with more information about your
-                                offer.
-                                Consider it a
-                                follow-up to your headline and
-                                explain the benefits of your service or product</b></span>
-                    </div>
-                    <div class="infoBox">
-                        <div class="info">
-                            <div class="infoIcon">
-                                <span>1</span>
-                            </div>
-                            <div class="infoDescription">Your first feature, written in the form of a benefit statement.
-                            </div>
-                        </div>
-                        <div class="info">
-                            <div class="infoIcon">
-                                <span>2</span>
-                            </div>
-                            <div class="infoDescription">Your second feature, written in the form of a benefit
-                                statement.
-                            </div>
-                        </div>
-                        <div class="info">
-                            <div class="infoIcon">
-                                <span>3</span>
-                            </div>
-                            <div class="infoDescription">Your third feature, written in the form of a benefit statement.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
             <div class="contentRight">
                 <div class="contentRightCard">
@@ -87,23 +55,63 @@
                     <div class="contentRightSpan">
                         <span>Sales akan menghubungi anda 1x24 jam setelah data kami terima.</span>
                     </div>
-                    <form action="" class="contentForm">
+                    <form name="formContact" class="contentForm">
                         <label for="yourName" class="labelForm">Your Name : </label>
-                        <input type="text" class="formItem" id="yourName" placeholder="First and last name">
+                        <input type="text" class="formItem" id="yourName" name="yourName"
+                            placeholder="First and last name">
+                        <span id="nameError" class="errorMessage"></span>
 
-                        <label for="email" class="labelForm">Email Address : </label>
-                        <input type="email" id="email" class="formItem" placeholder="example@email.com">
+                        <label for="yourEmail" class="labelForm">Email Address : </label>
+                        <input type="email" id="yourEmail" class="formItem" name="yourEmail"
+                            placeholder="example@email.com">
+                        <span id="emailError" class="errorMessage"></span>
 
                         <label for="selection" class="labelForm">What are you interest in?</label>
-                        <select id="selection" class="formItem">
+                        <select id="selection" class="formItem" name="selection">
                             <option value="" disabled selected hidden>Select Option</option>
-                            <option value="">Football</option>
-                            <option value="">Badminton</option>
-                            <option value="">Basket Ball</option>
+                            <option value="Football">Football</option>
+                            <option value="Badminton">Badminton</option>
+                            <option value="BasketBall">Basket Ball</option>
                         </select>
+                        <span id="selectError" class="errorMessage"></span>
 
-                        <button class="btnForm">SEND</button>
+                        <div type="submit" id="btnSubmit" class="btnForm" onclick="validationForm()">SEND</div>
                     </form>
+                </div>
+            </div>
+        </div>
+        <div class=" infoDiv">
+            <div class="infoHeader">
+                <span><b>Use this space to provide users with more information about your
+                        offer.
+                        Consider it a
+                        follow-up to your headline and
+                        explain the benefits of your service or product</b></span>
+            </div>
+            <div class="infoBox">
+                <div class="info">
+                    <div class="infoIcon">
+                        <span>1</span>
+                    </div>
+                    <div class="infoDescription">Your first feature, written in the form of a benefit
+                        statement.
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="infoIcon">
+                        <span>2</span>
+                    </div>
+                    <div class="infoDescription">Your second feature, written in the form of a benefit
+                        statement.
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="infoIcon">
+                        <span>3</span>
+                    </div>
+                    <div class="infoDescription">Your third feature, written in the form of a benefit
+                        statement.
+                    </div>
                 </div>
             </div>
         </div>
@@ -180,7 +188,8 @@
         <!-- awal div call us -->
         <div class="callBox">
             <h1>Your Closing Argument Headline</h1>
-            <span>Suspendisse egestas rhoncus urna in bibendum. Donec urna neque, euismod sed justo quis, convallis
+            <span>Suspendisse egestas rhoncus urna in bibendum. Donec urna neque, euismod sed justo quis,
+                convallis
                 tincidunt risus. Phasellus fringilla odio vel erat fringilla,</span>
 
             <button class="btnCallAction">Call to Action</button>
